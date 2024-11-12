@@ -1,0 +1,989 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Tickets Please API Documentation",
+        "_postman_id": "44ed0320-fdfe-44a4-b1b3-0e5ce91dd653",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Signs out the user and destroys the API token."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"lee.kuhlman@example.com\",\"password\":\"8c3a>RbG>egrqL_U\"}"
+                        },
+                        "description": "Authenticates the User and returns the API token.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"token\": \"{YOUR_AUTH_KEY}\"\n},\n\"message\": \"Authenticated\",\n\"status\": 200\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"type\":\"ticket\",\"id\":1,\"attributes\":{\"title\":\"a soluta quo\",\"description\":\"Ut facilis qui earum praesentium. Consequuntur aut et amet velit magnam. Id fugiat sit pariatur. Nulla doloremque voluptatum distinctio inventore labore error.\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:33:52.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":7},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/7\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/1\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/tickets\/{ticket}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets\/:ticket",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets\/:ticket",
+                            "variable": [
+                                {
+                                    "id": "ticket",
+                                    "key": "ticket",
+                                    "value": "1",
+                                    "description": "The ticket."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"adipisci\",\"description\":\"Ut tempora blanditiis error molestiae.\",\"status\":\"C\"},\"relationships\":{\"author\":{\"data\":{\"id\":4}}}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets\/:ticket",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets\/:ticket",
+                            "variable": [
+                                {
+                                    "id": "ticket",
+                                    "key": "ticket",
+                                    "value": "1",
+                                    "description": "The ticket."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"nisi\",\"description\":\"Ipsa itaque in et accusantium est.\",\"status\":\"C\"},\"relationships\":{\"author\":{\"data\":{\"id\":16}}}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Dr. Jean Klein\",\"email\":\"irma26@example.com\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}},{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Ottilie Batz\",\"email\":\"garnet.feil@example.net\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Robin Toy\",\"email\":\"easter.block@example.net\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Dr. Annamae Marquardt\",\"email\":\"josefina.bahringer@example.com\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Coleman Hegmann\",\"email\":\"treutel.tremayne@example.com\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},{\"type\":\"user\",\"id\":6,\"attributes\":{\"name\":\"Carlo Christiansen\",\"email\":\"hirthe.vincent@example.org\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}},{\"type\":\"user\",\"id\":7,\"attributes\":{\"name\":\"Ayla Predovic\",\"email\":\"gleichner.marcellus@example.org\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/7\"}},{\"type\":\"user\",\"id\":8,\"attributes\":{\"name\":\"Dallin Schimmel\",\"email\":\"madge.fisher@example.com\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/8\"}},{\"type\":\"user\",\"id\":9,\"attributes\":{\"name\":\"Brando Weissnat\",\"email\":\"mitchell.charlene@example.net\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/9\"}},{\"type\":\"user\",\"id\":10,\"attributes\":{\"name\":\"Mr. Rudy Stehr II\",\"email\":\"fredy.rohan@example.net\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/10\"}},{\"type\":\"user\",\"id\":11,\"attributes\":{\"name\":\"The Manager\",\"email\":\"manager@manager.com\",\"isManager\":true},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/11\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":11,\"total\":11}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"name\":\"fugiat\",\"email\":\"waldo.towne@example.net\",\"isManager\":false,\"password\":\"m`&-,i1$HI$rE\"}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Dr. Jean Klein\",\"email\":\"irma26@example.com\",\"isManager\":false},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/users\/{user}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "1",
+                                    "description": "The user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"name\":\"blanditiis\",\"email\":\"arice@example.com\",\"isManager\":false,\"password\":\";Y\\\"`;\\\\}p@@6KgkKl-l\"}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "1",
+                                    "description": "The user."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"name\":\"iste\",\"email\":\"sandra.mayert@example.net\",\"isManager\":true,\"password\":\"{7n:OKCsa\"}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Dr. Jean Klein\",\"email\":\"irma26@example.com\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:50.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}},{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Ottilie Batz\",\"email\":\"garnet.feil@example.net\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Robin Toy\",\"email\":\"easter.block@example.net\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Dr. Annamae Marquardt\",\"email\":\"josefina.bahringer@example.com\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Coleman Hegmann\",\"email\":\"treutel.tremayne@example.com\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},{\"type\":\"user\",\"id\":6,\"attributes\":{\"name\":\"Carlo Christiansen\",\"email\":\"hirthe.vincent@example.org\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}},{\"type\":\"user\",\"id\":7,\"attributes\":{\"name\":\"Ayla Predovic\",\"email\":\"gleichner.marcellus@example.org\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/7\"}},{\"type\":\"user\",\"id\":8,\"attributes\":{\"name\":\"Dallin Schimmel\",\"email\":\"madge.fisher@example.com\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/8\"}},{\"type\":\"user\",\"id\":9,\"attributes\":{\"name\":\"Brando Weissnat\",\"email\":\"mitchell.charlene@example.net\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/9\"}},{\"type\":\"user\",\"id\":10,\"attributes\":{\"name\":\"Mr. Rudy Stehr II\",\"email\":\"fredy.rohan@example.net\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:51.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/10\"}},{\"type\":\"user\",\"id\":11,\"attributes\":{\"name\":\"The Manager\",\"email\":\"manager@manager.com\",\"isManager\":true,\"emailVerifiedAt\":null,\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/11\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=77\",\"prev\":null,\"next\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":77,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=5\",\"label\":\"5\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=6\",\"label\":\"6\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=7\",\"label\":\"7\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=8\",\"label\":\"8\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=9\",\"label\":\"9\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=10\",\"label\":\"10\",\"active\":false},{\"url\":null,\"label\":\"...\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=76\",\"label\":\"76\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=77\",\"label\":\"77\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\",\"per_page\":15,\"to\":11,\"total\":1155}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the author."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Dr. Jean Klein\",\"email\":\"irma26@example.com\",\"isManager\":false,\"emailVerifiedAt\":\"2024-10-17T08:22:50.000000Z\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the author."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/authors\/{author_id}\/tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:author_id\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author_id\/tickets",
+                            "variable": [
+                                {
+                                    "id": "author_id",
+                                    "key": "author_id",
+                                    "value": "ea",
+                                    "description": "The ID of the author."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/ea\\\/tickets?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/ea\\\/tickets?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/ea\\\/tickets?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/ea\\\/tickets\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/v1\/authors\/{author_id}\/tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:author_id\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author_id\/tickets",
+                            "variable": [
+                                {
+                                    "id": "author_id",
+                                    "key": "author_id",
+                                    "value": "odit",
+                                    "description": "The ID of the author."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"No-example\",\"description\":\"No-example\",\"status\":\"No-example\"}},\"author\":0}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:author_id\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author_id\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "author_id",
+                                    "key": "author_id",
+                                    "value": "quidem",
+                                    "description": "The ID of the author."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/authors\/{author}\/tickets\/{ticket}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:author\/tickets\/:ticket",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author\/tickets\/:ticket",
+                            "variable": [
+                                {
+                                    "id": "author",
+                                    "key": "author",
+                                    "value": "impedit",
+                                    "description": "The author."
+                                },
+                                {
+                                    "id": "ticket",
+                                    "key": "ticket",
+                                    "value": "1",
+                                    "description": "The ticket."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"est\",\"description\":\"Et pariatur ipsa assumenda officiis qui.\",\"status\":\"H\"},\"relationships\":{\"author\":{\"data\":{\"id\":9}}}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PATCH api\/v1\/authors\/{author}\/tickets\/{ticket}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/authors\/:author\/tickets\/:ticket",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author\/tickets\/:ticket",
+                            "variable": [
+                                {
+                                    "id": "author",
+                                    "key": "author",
+                                    "value": "maxime",
+                                    "description": "The author."
+                                },
+                                {
+                                    "id": "ticket",
+                                    "key": "ticket",
+                                    "value": "1",
+                                    "description": "The ticket."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"iusto\",\"description\":\"Quod a consequatur quia distinctio ut cupiditate.\",\"status\":\"A\"},\"relationships\":{\"author\":{\"data\":{\"id\":8}}}}}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6InRTaW1wVnpyWFVxa3lsZ1BjMGF2Znc9PSIsInZhbHVlIjoiY3FXTlY4TXZjelVTWVFoakgvSzc2c2s5cDNmU0tvM1Z1WjhFU2Fyekp2MzNFcnY0WHhweE9SQkwwdUJQc0hseFJ3YXZ2Z0I0Zi9adjRqdkYzSDZKV1JuWUt5dG80VDViMWtwR2xLckl0RTlPUXc5Y2lUWDF0dEh6Z0RBLzY0TS8iLCJtYWMiOiJlMDg1ZDZhZDc1ZjY1ZWYzNGIyYTcyNTViYmUzMDFhMWQ2YTUyODVjYWI1MTJmMjBiNmM3ZjQyM2IwNTQwYTM0IiwidGFnIjoiIn0%3D; expires=Fri, 08 Nov 2024 15:29:49 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6ImpsaFpySkFsR2xLM3VyWUV4S09DVHc9PSIsInZhbHVlIjoiQWEwaTJOQ2FIR2daVUNnNzVOeG03YXpITTc3RVQ4UkhGZk0yaFJRQnBkSlQ4RmhOemsrcS9qd3huNjE3WUdIdDJPUGRKTEs3WnhqV2trQjByL3EyQ2dOcWtNUFdqTHBYMVlaUTVBL056L0p0NGFQaFM2ZmtSVnpZMk5oTXg3cDciLCJtYWMiOiIxYzU1ODY0YjA4M2E2NGIwNmUyM2NlNTAzOWNlYzFiNmFjNmY4YjQxNmEyODM3YzE4ZWZhN2U2NzYwYzZkZmY5IiwidGFnIjoiIn0%3D; expires=Fri, 08 Nov 2024 15:29:49 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"user_id\":7,\"title\":\"a soluta quo\",\"description\":\"Ut facilis qui earum praesentium. Consequuntur aut et amet velit magnam. Id fugiat sit pariatur. Nulla doloremque voluptatum distinctio inventore labore error.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:33:52.000000Z\"},{\"id\":2,\"user_id\":6,\"title\":\"reiciendis qui adipisci\",\"description\":\"Provident eum non vero. Molestiae aut tempora quasi nihil illum quia quia maxime. Alias facilis dolore voluptas aut quia quos. Possimus totam iusto praesentium quo et.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":3,\"user_id\":7,\"title\":\"itaque porro deserunt\",\"description\":\"Beatae veniam quaerat et in. Molestias omnis unde dolores. Enim enim cum laborum eum sint dolores quisquam. Voluptas eius laboriosam qui repudiandae ut veritatis.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":4,\"user_id\":1,\"title\":\"PATCH works2\",\"description\":\"testing update() method\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T11:48:01.000000Z\"},{\"id\":5,\"user_id\":4,\"title\":\"voluptatem enim temporibus\",\"description\":\"Aut qui non porro qui praesentium. Iure aut iure nulla sed magni. Tempora quia ipsum corporis vitae. Consequatur sunt voluptate libero et distinctio ut facere.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":6,\"user_id\":8,\"title\":\"qui blanditiis at\",\"description\":\"Dolor nihil quis quos aut at ut. Officiis ut minus est. Eius minus qui ex debitis maiores eligendi modi. Quia maxime provident sint sit consequatur aut sapiente.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":7,\"user_id\":5,\"title\":\"tempora magnam ipsa\",\"description\":\"Labore voluptate sunt aliquid qui est. Et quas consequatur vero aut. Tempore voluptatum et id quas ipsum est consectetur. Quidem eius qui animi quae.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":8,\"user_id\":9,\"title\":\"atque ut et\",\"description\":\"Officia dignissimos quo aliquam rem molestiae omnis. Dolore aut dignissimos deserunt provident aut alias. Voluptate voluptatem aspernatur tenetur accusamus enim autem ullam nemo. Consequuntur et quia qui provident sit.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":9,\"user_id\":2,\"title\":\"maxime natus vel\",\"description\":\"Iure aut iusto eaque et ipsum sint nobis. Nihil numquam asperiores illo facere voluptatum ea. Enim magni nisi doloribus reprehenderit porro quia. Iste asperiores iure natus. Quaerat sint quasi vel unde nihil esse enim.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":10,\"user_id\":9,\"title\":\"fugiat tenetur id\",\"description\":\"Vitae doloribus ratione harum ut. At ea qui omnis. Doloremque incidunt ipsa consequatur eius saepe. Eius sit alias quia eum consectetur non. Consequatur unde temporibus ut dolorem officiis at.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":11,\"user_id\":3,\"title\":\"harum consequatur et\",\"description\":\"Cumque minus cumque modi sed dolorem. Doloremque unde officiis voluptatem illo quidem eveniet ut pariatur. Vel iure tenetur voluptas veritatis occaecati nam.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":12,\"user_id\":8,\"title\":\"non voluptas iusto\",\"description\":\"Sed ipsum corporis ipsa exercitationem. Iste aliquam id temporibus. Aut nihil laboriosam voluptas quis tempore molestiae et quisquam. Quia placeat velit nesciunt nesciunt est.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":13,\"user_id\":5,\"title\":\"aliquid tenetur dolor\",\"description\":\"Non commodi sunt vero vero porro. Id ratione perferendis voluptas dignissimos suscipit itaque quae.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":14,\"user_id\":8,\"title\":\"eius a ratione\",\"description\":\"Voluptatem sunt saepe neque incidunt. Ut quasi est id voluptate. Itaque dolor non aut odio ducimus. Sunt cum recusandae aut nihil similique. Reprehenderit sit dolor reprehenderit odio quas ipsam optio.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":15,\"user_id\":10,\"title\":\"aut sunt ex\",\"description\":\"Aut rerum inventore soluta. Ut quisquam ex at quis eos. Magnam laborum voluptates quia impedit labore sed sunt. Animi sunt cupiditate cumque sapiente ab.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":16,\"user_id\":1,\"title\":\"dolore harum qui\",\"description\":\"Sed animi esse error qui dolores quis quasi. Magnam consectetur est tempora voluptas natus. Sit molestias ut ut ipsum. Consequatur aut maiores consequatur cum nostrum ut consequatur quia. Qui corrupti qui autem modi.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":17,\"user_id\":1,\"title\":\"quam voluptatem sapiente\",\"description\":\"Sequi corrupti eligendi possimus ut rerum. Praesentium doloribus fugiat dolores corporis optio dolores. Debitis laboriosam in occaecati totam alias ea. Et ut laudantium animi est laudantium consequuntur dolore. Facilis aspernatur exercitationem incidunt.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":18,\"user_id\":5,\"title\":\"quo voluptatem nulla\",\"description\":\"Vel esse repudiandae et et architecto adipisci. Voluptatum enim aperiam et aspernatur unde voluptas voluptates. In omnis alias quisquam nisi odit. Non iste quas officia voluptatem accusamus. Ad quia eveniet repellat quis neque.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":19,\"user_id\":6,\"title\":\"perspiciatis facere commodi\",\"description\":\"Voluptatem totam eum illo autem nobis esse. Et laboriosam qui distinctio nisi ipsa nihil. Quas odio nisi eveniet voluptate. Consequatur voluptas nobis officiis sit.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":20,\"user_id\":3,\"title\":\"minima consequuntur minima\",\"description\":\"Sint odit voluptatem et dicta illum veniam corporis. Laudantium sed ipsam minus cum libero. Aut aut omnis rerum aut vitae.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":21,\"user_id\":8,\"title\":\"fuga rerum et\",\"description\":\"Molestias explicabo quod error doloribus aliquid atque dolorem. Voluptate amet laboriosam dolores iste quis voluptates. Soluta non nobis beatae corporis inventore. Est voluptates eos voluptas porro veritatis consequuntur doloribus.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":22,\"user_id\":4,\"title\":\"voluptas laudantium et\",\"description\":\"Voluptatibus voluptas optio modi autem commodi sed error. Consequuntur veniam natus sequi error assumenda. Magni repudiandae deserunt libero vel debitis quo vitae. Illum ipsum dolore velit rerum.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":23,\"user_id\":8,\"title\":\"alias quia quisquam\",\"description\":\"Labore doloribus impedit nostrum consectetur vel pariatur unde. Consequuntur dicta autem qui. Id labore ut amet dolores eos corrupti. Veniam sunt enim ut facilis dolor.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":24,\"user_id\":6,\"title\":\"adipisci aperiam nesciunt\",\"description\":\"Distinctio cupiditate iusto perspiciatis cum vel laudantium accusantium rem. Repellendus et consequatur explicabo quia doloribus sit quam. Quam quia deserunt cumque numquam perferendis totam quo. Corporis quia nihil excepturi quis facere sed sit.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":25,\"user_id\":2,\"title\":\"sit et laudantium\",\"description\":\"Repudiandae aliquam possimus assumenda sint officiis dolore. Sed nemo perferendis veritatis omnis. Consequuntur ab architecto sapiente quia maxime.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":26,\"user_id\":5,\"title\":\"similique et distinctio\",\"description\":\"Cumque quia nulla iure eos molestiae ea. Asperiores id nemo quia atque voluptates voluptas voluptatem. Et delectus dolor accusantium adipisci nihil. Est autem laudantium commodi quasi aspernatur nemo suscipit. Aut iusto at quos iure voluptas non eveniet necessitatibus.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":27,\"user_id\":7,\"title\":\"eum nemo culpa\",\"description\":\"At voluptatum similique nulla corrupti iure dolores illo. Sunt rerum quod et eos. Culpa delectus reiciendis nesciunt quisquam maxime tenetur omnis.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":28,\"user_id\":6,\"title\":\"et deleniti quo\",\"description\":\"Dolorum voluptatibus voluptas adipisci. Harum magnam est similique sed qui. Ipsum voluptatem dolor est voluptatum natus repellendus sint laudantium. Voluptatem suscipit sit consequatur inventore. Ipsum id eum omnis.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":29,\"user_id\":8,\"title\":\"distinctio et aperiam\",\"description\":\"Sed et necessitatibus neque non est odit non sed. Repellat architecto veritatis tempora vero numquam rem sit voluptas. Repellendus expedita et sit.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":30,\"user_id\":10,\"title\":\"omnis quo rem\",\"description\":\"Vitae ad assumenda nemo et libero corrupti aut. Voluptatum et unde temporibus culpa mollitia. Ab aspernatur ullam sequi ut saepe. Eaque autem accusamus et laboriosam iure vitae.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":31,\"user_id\":3,\"title\":\"laudantium illo minima\",\"description\":\"Quia quam soluta est distinctio ut. Tempora itaque sapiente perferendis sit ad ut. Suscipit dignissimos esse deserunt pariatur sit.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":32,\"user_id\":3,\"title\":\"qui beatae autem\",\"description\":\"Cumque voluptas sapiente sint quia ut ad. Modi consequatur quas saepe non. Eum dolorem quia et pariatur rerum voluptatem. Perferendis voluptas nam repellendus alias.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":33,\"user_id\":9,\"title\":\"quo ad quia\",\"description\":\"Fuga officia libero est. Rem eveniet dolorem excepturi voluptas minus placeat. Tenetur minus et dolores impedit veritatis quasi quas. Ut adipisci possimus dolor est. Perferendis quo dignissimos iste sint voluptas.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":34,\"user_id\":5,\"title\":\"omnis nulla quod\",\"description\":\"Iusto deserunt numquam reiciendis impedit veniam tempore perspiciatis. Laudantium voluptate est iste. Ad suscipit saepe veniam corrupti omnis quia maxime autem.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":35,\"user_id\":10,\"title\":\"dolores consequatur itaque\",\"description\":\"Incidunt totam necessitatibus at et eos eveniet inventore. Iure tempore sit est non autem aut. Odit incidunt alias magnam non necessitatibus vel quo. Repellat repellendus repudiandae explicabo at a velit.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":36,\"user_id\":4,\"title\":\"consectetur magni dolorem\",\"description\":\"Saepe maiores dolor omnis dignissimos ea. Qui et eum corrupti assumenda. Nam deserunt tempora aspernatur accusantium quis dolor et. Quos non ut aperiam architecto ut aut fugiat.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":37,\"user_id\":9,\"title\":\"vel dolorum incidunt\",\"description\":\"Ut facilis ad et aut eius aliquid illum. Sint hic rerum quaerat cumque consequuntur voluptates distinctio. Reiciendis praesentium omnis exercitationem veniam aut ducimus omnis quia. Quia aperiam doloremque sint excepturi autem reiciendis.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":38,\"user_id\":3,\"title\":\"eum est velit\",\"description\":\"Nihil ab sunt accusantium distinctio. Dolor enim quisquam esse esse. Quidem commodi assumenda maiores eaque praesentium. Quos repellendus suscipit dolorem velit vero.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":39,\"user_id\":6,\"title\":\"inventore impedit veniam\",\"description\":\"Commodi sed soluta facilis quas fugiat enim doloremque est. Ut corrupti dolores nam voluptas aliquam. Molestias quia est porro suscipit tenetur nobis. Veritatis voluptatibus voluptatem est fuga.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":40,\"user_id\":2,\"title\":\"id sit asperiores\",\"description\":\"Sit numquam totam consequatur voluptatem. Aut labore quam in cupiditate vitae quia delectus. Consequatur ea et debitis qui quidem sunt.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":41,\"user_id\":8,\"title\":\"iste qui et\",\"description\":\"Itaque mollitia quia cumque ipsa tempore nesciunt. Nesciunt est debitis ipsam quo rerum aliquid pariatur.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":42,\"user_id\":4,\"title\":\"minus incidunt fugit\",\"description\":\"Vero officia praesentium sint dicta consequatur soluta. Tempora corrupti inventore suscipit consequatur totam. Neque provident assumenda non ut ipsum aliquam. Id earum velit dolore voluptate aut dolor.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":43,\"user_id\":2,\"title\":\"et pariatur nesciunt\",\"description\":\"Corporis sapiente aut in ab eveniet explicabo aut. Cum cumque sit voluptas voluptatibus fugiat est ut. Repellendus fuga illum consequatur est qui omnis sed.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":44,\"user_id\":7,\"title\":\"placeat earum optio\",\"description\":\"Beatae eaque est quaerat sapiente. Repudiandae aut impedit fugit et et non saepe. Temporibus explicabo quia velit mollitia dicta mollitia ut.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":45,\"user_id\":7,\"title\":\"nihil voluptatem optio\",\"description\":\"Excepturi aut voluptatum quibusdam sint ut. Id reprehenderit et vitae quo unde dolores. Similique et blanditiis asperiores odit.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":46,\"user_id\":6,\"title\":\"dolor perspiciatis dolor\",\"description\":\"Adipisci quae dolore corporis autem harum incidunt. Cum provident expedita provident vitae sunt. In nulla aut et ut repellendus. Minima velit in voluptatem esse.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":47,\"user_id\":9,\"title\":\"veritatis quidem et\",\"description\":\"Aut sit dolores quam nam tempora qui harum. Labore nisi ut voluptate est dolore. Voluptas numquam repudiandae dolores veritatis illum at. Enim ab culpa voluptatem in eos molestias.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":48,\"user_id\":7,\"title\":\"nesciunt non quo\",\"description\":\"Quae voluptatem iste autem. Recusandae velit maxime itaque fugit. Dolor qui laborum inventore neque animi est omnis. In eius laborum ea quaerat.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":49,\"user_id\":6,\"title\":\"et et necessitatibus\",\"description\":\"Voluptas dolore aut et nulla dicta quod error odit. Totam rerum ex facilis iste molestiae nobis. Sint qui cupiditate repellat. Vel quia fuga ullam quibusdam at.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":50,\"user_id\":4,\"title\":\"aut tempore voluptatem\",\"description\":\"Officiis laborum nihil quos sint. Dolor libero qui molestias est provident nihil. Molestiae laboriosam voluptas ea velit sunt. Sint quia voluptatum perferendis ea.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":51,\"user_id\":5,\"title\":\"molestiae eaque ut\",\"description\":\"Officia eum corrupti dolores recusandae hic. Aliquid dicta autem et quaerat. Quisquam atque aperiam officiis odio dicta sapiente voluptatem atque. Voluptatem eum nobis distinctio et facilis.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":52,\"user_id\":3,\"title\":\"nisi inventore ut\",\"description\":\"Animi et voluptatem consequatur. Consequatur numquam sit rerum adipisci molestiae magnam et quam. Voluptas numquam distinctio expedita omnis illo aut ut numquam. Sit aut reprehenderit repellat cum.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":53,\"user_id\":9,\"title\":\"odit quia accusamus\",\"description\":\"Qui dignissimos nobis quae nesciunt voluptatibus dolores nihil. Pariatur ratione velit voluptatem sint consectetur voluptatum. Voluptas hic dignissimos rem non nihil.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":54,\"user_id\":4,\"title\":\"aliquam quia quis\",\"description\":\"Tempore fugiat velit dolore consectetur maiores. Quidem dolore cumque consectetur. Consequuntur assumenda est eius ea perspiciatis aut. Sit voluptate adipisci facilis molestias reprehenderit impedit quo et. Eveniet maiores quia non natus iure nostrum ut aliquid.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":55,\"user_id\":9,\"title\":\"pariatur explicabo beatae\",\"description\":\"Quia magni quo minima veritatis laudantium nisi quibusdam. Est praesentium dolorem est ut et consequatur aut. Ratione voluptas placeat officia tempore et possimus aut.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":56,\"user_id\":2,\"title\":\"velit vel id\",\"description\":\"Vel eos officia amet quia enim. Voluptatibus voluptate corrupti voluptate. Aut id quidem quibusdam numquam adipisci eligendi. Sint nulla incidunt beatae iusto.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":57,\"user_id\":7,\"title\":\"suscipit porro voluptatem\",\"description\":\"Magnam numquam sapiente molestiae voluptas enim voluptatem ad. Aut eum quasi sit odit voluptate. Tenetur nihil repellendus natus et autem et ut. Ut aspernatur officia consequuntur suscipit.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":58,\"user_id\":8,\"title\":\"perferendis quam expedita\",\"description\":\"Et libero culpa amet. Vel soluta consequatur sed totam. Accusamus voluptatem aut error illum. Unde error molestiae aliquam voluptatum maiores.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":59,\"user_id\":1,\"title\":\"qui deleniti deleniti\",\"description\":\"Et magni qui nam et aut aperiam optio. Eum est itaque et et dignissimos corporis aut. Corporis enim voluptatem ut voluptatibus velit harum expedita.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":60,\"user_id\":5,\"title\":\"quia eos aut\",\"description\":\"Provident adipisci molestiae tempora excepturi corporis. Quia deserunt ex quod voluptatem.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":61,\"user_id\":3,\"title\":\"sed deleniti mollitia\",\"description\":\"Praesentium tempora voluptatem adipisci eos omnis recusandae reprehenderit. Facilis rerum ut mollitia minima. Optio corporis est veritatis facilis eligendi. Totam velit occaecati id soluta eum et.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":62,\"user_id\":2,\"title\":\"maxime possimus suscipit\",\"description\":\"Atque est inventore vel voluptas et nihil. Aperiam et unde accusamus quaerat doloremque aliquid totam. Omnis rem molestias unde. Vel velit ut atque quis nam enim magni.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":63,\"user_id\":9,\"title\":\"dolor quos ab\",\"description\":\"Laudantium et tempora sunt fugit cumque mollitia deserunt. Modi dignissimos voluptates amet expedita. Voluptatum cupiditate et qui aut voluptas. Optio nam ratione totam officiis.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":64,\"user_id\":4,\"title\":\"aut cumque tempore\",\"description\":\"Quia aut molestiae doloremque. Neque ut quia enim eligendi quis enim. Dolorem laboriosam sit accusamus placeat veritatis voluptas.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":65,\"user_id\":5,\"title\":\"culpa sequi qui\",\"description\":\"Necessitatibus ut illo dolores aliquid et. Consequatur et qui eum necessitatibus. In sed accusamus iste iste distinctio debitis similique.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":66,\"user_id\":4,\"title\":\"nobis id facere\",\"description\":\"Rem aut eum sunt temporibus dolorem occaecati qui. Et est soluta corporis animi reprehenderit.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":67,\"user_id\":10,\"title\":\"accusantium voluptatem sed\",\"description\":\"Quia labore reiciendis quae nulla. Ut dolor voluptates sunt dolores non necessitatibus dicta. Quae autem maiores voluptas et alias dolorem. Ad harum tempora nostrum omnis suscipit. Qui fugiat sit ut dignissimos.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":68,\"user_id\":8,\"title\":\"delectus earum occaecati\",\"description\":\"Error quod delectus blanditiis deleniti incidunt quisquam sed. Dolorem minima unde laboriosam eos ut. Ut qui pariatur consequuntur quae.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":69,\"user_id\":2,\"title\":\"ipsum et sunt\",\"description\":\"Est ipsam similique dolore cum modi. Rerum mollitia et ut quos voluptatem. Asperiores sint illo necessitatibus incidunt ut nesciunt necessitatibus.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":70,\"user_id\":6,\"title\":\"reprehenderit tenetur et\",\"description\":\"Harum dicta perspiciatis molestiae architecto. Quia corporis commodi aut dignissimos amet quis dolores. Velit maxime blanditiis quia sed beatae rerum nihil ut. Quo vero veniam sit.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":71,\"user_id\":3,\"title\":\"eius voluptas sint\",\"description\":\"Quidem tempora ex aliquid corrupti ex non aut. Nisi tenetur officiis eos molestiae quis. Tempora nisi et aut. Molestias ducimus vel praesentium numquam et voluptatem blanditiis. Perspiciatis iure id laudantium hic aut sit.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":72,\"user_id\":8,\"title\":\"impedit consequatur officia\",\"description\":\"Quaerat et iure in. Enim quidem qui cupiditate eligendi officiis et occaecati suscipit. Voluptas placeat animi rerum voluptatum est. Aut vero dignissimos quo impedit.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":73,\"user_id\":1,\"title\":\"labore officiis neque\",\"description\":\"Corporis est esse qui quaerat. Consequatur alias quia sit in qui. Deserunt debitis aut rerum sapiente ipsa quia. Officiis debitis id debitis nihil.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":74,\"user_id\":8,\"title\":\"ut exercitationem corrupti\",\"description\":\"Porro sint occaecati eos ut nihil. Vitae velit ut sequi officiis fugiat temporibus. Optio eos dolore temporibus aut suscipit magni.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":75,\"user_id\":1,\"title\":\"libero dignissimos aut\",\"description\":\"Sed quam non sint consequatur iste. Aut porro autem fugiat rerum facilis. Maiores cumque repellat accusamus quos accusantium et. Sit ratione nemo eum ut.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":76,\"user_id\":10,\"title\":\"ea sed sit\",\"description\":\"Dolores veniam commodi dolores amet dolorum. Repellat ratione numquam voluptatibus dicta sed dignissimos. Omnis nam repudiandae nemo aut eum debitis error velit.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":77,\"user_id\":2,\"title\":\"quidem magnam debitis\",\"description\":\"Dolores occaecati quidem dolor. Culpa qui aut quis ipsam velit. Ab est debitis eaque et.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":78,\"user_id\":1,\"title\":\"voluptatibus dolor ut\",\"description\":\"Eaque deserunt facere dicta qui consequuntur. Sunt sit sit sed temporibus ut minus. Labore et molestias non similique. Aut nobis vel ut corrupti.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":79,\"user_id\":9,\"title\":\"fuga vitae voluptatem\",\"description\":\"Architecto pariatur autem ut impedit fugiat facere. Iusto quaerat aspernatur sed itaque laudantium. A deserunt repellendus repudiandae ut rem. Nemo nostrum voluptate qui commodi asperiores excepturi ratione ex. Esse pariatur corrupti necessitatibus.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":80,\"user_id\":7,\"title\":\"repudiandae consequatur dolores\",\"description\":\"Ut blanditiis quo dolorem aut est neque. Non natus necessitatibus quo molestiae rerum officiis.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":81,\"user_id\":8,\"title\":\"est voluptatibus voluptas\",\"description\":\"Aut molestiae consequatur dignissimos laudantium quibusdam amet. Sequi quo dolor reprehenderit non tempore. Id occaecati recusandae eos rerum laudantium eum. Eius cum sit est.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":82,\"user_id\":3,\"title\":\"sequi fugit eligendi\",\"description\":\"Accusantium consequatur molestiae ea quia et earum. Dolorem quam nihil iure nostrum sunt dignissimos unde. Placeat soluta modi quasi assumenda molestias.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":83,\"user_id\":8,\"title\":\"distinctio debitis architecto\",\"description\":\"Qui et et rerum veniam maxime. Vitae corrupti ducimus aut exercitationem consectetur. Aperiam est nihil repellat architecto est qui et.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":84,\"user_id\":6,\"title\":\"quia laudantium aperiam\",\"description\":\"Explicabo sequi architecto qui voluptas quo. Quia vel deleniti et voluptate et quo.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":85,\"user_id\":7,\"title\":\"velit iste eos\",\"description\":\"Nostrum sint nulla debitis quaerat molestiae sit. Est eaque unde vitae harum accusantium. Temporibus vel aliquid nisi quos maxime explicabo vero. Omnis hic animi sed illum.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":86,\"user_id\":5,\"title\":\"explicabo officiis est\",\"description\":\"Repudiandae aut sint voluptates et. Sint sapiente aut laudantium asperiores assumenda dolore corporis. Numquam quia eius ut quis non qui numquam. Corrupti veritatis qui est ut omnis.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":87,\"user_id\":10,\"title\":\"commodi praesentium natus\",\"description\":\"Ut architecto dolorum voluptatibus molestiae. Maxime eaque fugiat voluptatem qui repudiandae temporibus quisquam. Quod est aut sed autem. Distinctio sunt aperiam omnis qui autem hic et odit. Nulla velit dolorum aperiam suscipit vel.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":88,\"user_id\":2,\"title\":\"harum necessitatibus laboriosam\",\"description\":\"Aut est occaecati vel nisi occaecati. Molestiae ipsam quaerat deleniti maxime est.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":89,\"user_id\":9,\"title\":\"nemo sit molestiae\",\"description\":\"Debitis sunt dolorem qui similique. Inventore a velit illum possimus. Aut aliquam omnis id architecto deserunt. Iusto veniam dolorem enim quae amet. Praesentium id placeat ea.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":90,\"user_id\":9,\"title\":\"voluptatem sit eligendi\",\"description\":\"Quis quae eos et deserunt praesentium voluptatibus cum. Sit sint et eum omnis. Sed voluptas voluptas alias assumenda doloribus error reprehenderit voluptas.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":91,\"user_id\":4,\"title\":\"qui aliquid sed\",\"description\":\"Quibusdam eum voluptatem expedita fuga facere placeat non. Eveniet aliquid explicabo consequatur nihil est dolores. Ut corporis eaque sint. Qui omnis saepe quia numquam.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":92,\"user_id\":3,\"title\":\"et labore quae\",\"description\":\"Reiciendis quidem sit et facilis ad cum vel. Iste odit quidem voluptatum illo quia amet. Nostrum aut ad et non aspernatur veniam. Iure aut odio aperiam esse amet sed vel.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":93,\"user_id\":9,\"title\":\"dolorum quia ipsam\",\"description\":\"Velit sit assumenda voluptates doloribus reiciendis quos voluptas. Quidem accusamus voluptatem corporis corporis expedita quo. Possimus voluptas doloremque blanditiis atque vero aliquam.\",\"status\":\"H\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":94,\"user_id\":9,\"title\":\"iure iure est\",\"description\":\"Qui iusto esse eveniet aut quo ex. Placeat soluta excepturi reiciendis sed voluptatem. Voluptatem deleniti ducimus atque aspernatur minima repudiandae. Non aliquam sed et qui. Qui qui illum nisi architecto aut aliquid esse.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":95,\"user_id\":8,\"title\":\"necessitatibus et officia\",\"description\":\"Eveniet ab voluptates qui ipsam. Doloribus nam neque rerum et quisquam quis. Quis non nam accusamus sapiente optio iusto et et. Ut sed consequatur nemo ut laboriosam quo magni voluptates. Aliquam qui aperiam sint quaerat voluptatibus magni fugiat dolorem.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":96,\"user_id\":5,\"title\":\"possimus voluptas dignissimos\",\"description\":\"Ad earum ducimus magnam et. Exercitationem eum temporibus ipsa ab ut. Sed autem sapiente corrupti unde labore.\",\"status\":\"C\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":97,\"user_id\":3,\"title\":\"omnis qui quia\",\"description\":\"Vero nemo deserunt deleniti harum quasi. Neque illo accusamus rerum autem natus.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":98,\"user_id\":2,\"title\":\"et aut minus\",\"description\":\"Perferendis vitae deleniti maxime laborum. Itaque quo consequatur blanditiis voluptatum ad voluptas. Dolor et asperiores voluptate.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":99,\"user_id\":9,\"title\":\"at nihil in\",\"description\":\"Qui minus laboriosam qui sit repudiandae deleniti expedita. Necessitatibus qui expedita aliquam quibusdam. Cupiditate voluptas quisquam consequatur nihil. Sint ducimus quo id et. In sapiente sint explicabo porro est voluptatem incidunt.\",\"status\":\"X\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":100,\"user_id\":8,\"title\":\"iste exercitationem labore\",\"description\":\"Inventore voluptas dolorem harum dolores rerum occaecati. Nesciunt velit voluptates veritatis. Minus non omnis aut laboriosam ullam voluptatum quasi. Provident ipsum debitis molestiae eius.\",\"status\":\"A\",\"created_at\":\"2024-10-17T08:22:51.000000Z\",\"updated_at\":\"2024-10-17T08:22:51.000000Z\"},{\"id\":101,\"user_id\":2,\"title\":\"Replace this title\",\"description\":\"Replace this description\",\"status\":\"A\",\"created_at\":\"2024-10-17T09:37:48.000000Z\",\"updated_at\":\"2024-10-17T09:37:48.000000Z\"},{\"id\":102,\"user_id\":1,\"title\":\"Replace this title\",\"description\":\"Replace this description\",\"status\":\"A\",\"created_at\":\"2024-10-17T09:38:06.000000Z\",\"updated_at\":\"2024-10-17T09:38:06.000000Z\"},{\"id\":103,\"user_id\":1,\"title\":\"Replace this title\",\"description\":\"Replace this description\",\"status\":\"A\",\"created_at\":\"2024-10-17T09:43:43.000000Z\",\"updated_at\":\"2024-10-17T09:43:43.000000Z\"},{\"id\":104,\"user_id\":1,\"title\":\"right user\",\"description\":\"this ticket is created by the right user\",\"status\":\"A\",\"created_at\":\"2024-10-17T11:46:13.000000Z\",\"updated_at\":\"2024-10-17T11:46:13.000000Z\"},{\"id\":106,\"user_id\":2,\"title\":\"asfsdf\",\"description\":\"Replace this description\",\"status\":\"A\",\"created_at\":\"2024-11-02T14:09:18.000000Z\",\"updated_at\":\"2024-11-02T14:09:18.000000Z\"}]",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Managing Tickets",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets",
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "sort%3Dtitle%2C-createdAt",
+                                    "description": "Data field(s) to sort by. Seperate multiple fields with commas. Denote descending sort with a minus sign.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bstatus%5D",
+                                    "value": "",
+                                    "description": "Filter by status code: A, C, H, X.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5Btitle%5D",
+                                    "value": "%2Afix%2A",
+                                    "description": "Filter by title. Wildcards are supported.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets?sort=sort%3Dtitle%2C-createdAt&filter%5Bstatus%5D=&filter%5Btitle%5D=%2Afix%2A"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"ticket\",\"id\":106,\"attributes\":{\"title\":\"asfsdf\",\"status\":\"A\",\"createdAt\":\"2024-11-02T14:09:18.000000Z\",\"updatedAt\":\"2024-11-02T14:09:18.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/106\"}},{\"type\":\"ticket\",\"id\":104,\"attributes\":{\"title\":\"right user\",\"status\":\"A\",\"createdAt\":\"2024-10-17T11:46:13.000000Z\",\"updatedAt\":\"2024-10-17T11:46:13.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":1},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/104\"}},{\"type\":\"ticket\",\"id\":103,\"attributes\":{\"title\":\"Replace this title\",\"status\":\"A\",\"createdAt\":\"2024-10-17T09:43:43.000000Z\",\"updatedAt\":\"2024-10-17T09:43:43.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":1},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/103\"}},{\"type\":\"ticket\",\"id\":102,\"attributes\":{\"title\":\"Replace this title\",\"status\":\"A\",\"createdAt\":\"2024-10-17T09:38:06.000000Z\",\"updatedAt\":\"2024-10-17T09:38:06.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":1},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/102\"}},{\"type\":\"ticket\",\"id\":101,\"attributes\":{\"title\":\"Replace this title\",\"status\":\"A\",\"createdAt\":\"2024-10-17T09:37:48.000000Z\",\"updatedAt\":\"2024-10-17T09:37:48.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/101\"}},{\"type\":\"ticket\",\"id\":1,\"attributes\":{\"title\":\"a soluta quo\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:33:52.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":7},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/7\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/1\"}},{\"type\":\"ticket\",\"id\":2,\"attributes\":{\"title\":\"reiciendis qui adipisci\",\"status\":\"H\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":6},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/2\"}},{\"type\":\"ticket\",\"id\":3,\"attributes\":{\"title\":\"itaque porro deserunt\",\"status\":\"A\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":7},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/7\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/3\"}},{\"type\":\"ticket\",\"id\":4,\"attributes\":{\"title\":\"PATCH works2\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T11:48:01.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":1},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/4\"}},{\"type\":\"ticket\",\"id\":5,\"attributes\":{\"title\":\"voluptatem enim temporibus\",\"status\":\"H\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/5\"}},{\"type\":\"ticket\",\"id\":6,\"attributes\":{\"title\":\"qui blanditiis at\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":8},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/8\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/6\"}},{\"type\":\"ticket\",\"id\":7,\"attributes\":{\"title\":\"tempora magnam ipsa\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/7\"}},{\"type\":\"ticket\",\"id\":8,\"attributes\":{\"title\":\"atque ut et\",\"status\":\"A\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":9},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/9\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/8\"}},{\"type\":\"ticket\",\"id\":9,\"attributes\":{\"title\":\"maxime natus vel\",\"status\":\"C\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/9\"}},{\"type\":\"ticket\",\"id\":10,\"attributes\":{\"title\":\"fugiat tenetur id\",\"status\":\"X\",\"createdAt\":\"2024-10-17T08:22:51.000000Z\",\"updatedAt\":\"2024-10-17T08:22:51.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":9},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/9\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\\\/10\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=7\",\"prev\":null,\"next\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":7,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=5\",\"label\":\"5\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=6\",\"label\":\"6\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=7\",\"label\":\"7\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/tickets\",\"per_page\":15,\"to\":15,\"total\":105}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a ticket",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tickets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"attributes\":{\"title\":\"No-example\",\"description\":\"No-example\",\"status\":\"No-example\"},\"relationships\":{\"author\":{\"data\":{\"id\":0}}}}}"
+                        },
+                        "description": "Creates a new ticket. Users can only create tickets for themselves. Managers can create tickets for any user."
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}
